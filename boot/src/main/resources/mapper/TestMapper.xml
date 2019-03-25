@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.test.boot.dao.TestMapper">
+
+	<select id="getUserCompanyInfo" resultType="com.test.boot.vo.UserVo">
+		select a.user_id, a.username as user_name,a.company_id as org_id, e.name as org_name
+		FROM
+		system_user a join system_company e on a.company_id=e.company_id
+		and a.user_id=#{user_id}
+	</select>
+</mapper>
